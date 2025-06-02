@@ -1,4 +1,4 @@
-from fastapi import FastAPI, UploadFile, File, Form, HTTPException
+from fastapi import FastAPI, UploadFile, File, Form, HTTPException, Path
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -48,13 +48,14 @@ async def upload_form(request: Request):
 @app.post("/upload")
 async def upload_file(
     file: UploadFile = File(...),
-    uploader: str = Form(...),
+    uploader: str = Form('sd'),
     brand_name: Optional[str] = Form(None),
-    gender: Optional[str] = Form(None),
     size_guide_header: Optional[str] = Form(None),
-    unit: Optional[str] = Form(None),
+    gender: Optional[str] = Form('Men'),
+    fit: Optional[str] = Form(None),
+    unit: Optional[str] = Form('in'),
     category: Optional[str] = Form(None),
-    fit: Optional[str] = Form(None)
+    source_url: Optional[str] = Form(None)
 ):
     # Generate a human-readable filename: <uploader>__<YYYYMMDD_HHMMSS>.<ext>
     file_extension = os.path.splitext(file.filename)[1]
@@ -97,6 +98,17 @@ async def upload_file(
 @app.get("/routes")
 def list_routes():
     return [route.path for route in app.routes]
+
+@app.get("/image/{filename}", response_class=HTMLResponse)
+async def image_detail(request: Request, filename: str = Path(...)):
+    # Read the metadata log
+    with open(METADATA_LOG, "r") as f:
+        images = json.load(f)
+    # Find the image by filename
+    image = next((img for img in images if img["filename"] == filename), None)
+    if not image:
+        return HTMLResponse(content="<h2>Image not found</h2>", status_code=404)
+    return templates.TemplateResponse("image_detail.html", {"request": request, "image": image})
 
 if __name__ == "__main__":
     import uvicorn

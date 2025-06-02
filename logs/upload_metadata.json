@@ -70,5 +70,41 @@
     "category": "Mens Apparel",
     "fit": "NA",
     "uploaded_at": "2025-06-01T22:38:14.539104"
+  },
+  {
+    "filename": "sd__20250601_225530.png",
+    "original_filename": "Screenshot 2025-06-01 at 10.54.55\u202fPM.png",
+    "uploader": "sd",
+    "brand_name": "Patagonia",
+    "gender": "Men",
+    "size_guide_header": "Men's Tops Size Chart",
+    "unit": "in",
+    "category": "tops",
+    "fit": null,
+    "uploaded_at": "2025-06-01T22:55:30.007476"
+  },
+  {
+    "filename": "sd__20250601_225738.png",
+    "original_filename": "Screenshot 2025-06-01 at 10.56.49\u202fPM.png",
+    "uploader": "sd",
+    "brand_name": "banana republic",
+    "gender": "Men",
+    "size_guide_header": "Men Outerwear",
+    "unit": "in",
+    "category": "outerwear",
+    "fit": "Regular",
+    "uploaded_at": "2025-06-01T22:57:38.927047"
+  },
+  {
+    "filename": "sd__20250601_225824.png",
+    "original_filename": "Screenshot 2025-06-01 at 10.57.54\u202fPM.png",
+    "uploader": "sd",
+    "brand_name": "banana republic",
+    "gender": "Men",
+    "size_guide_header": "Men Shirts & Sweaters",
+    "unit": "in",
+    "category": null,
+    "fit": "regular",
+    "uploaded_at": "2025-06-01T22:58:24.462445"
   }
 ]

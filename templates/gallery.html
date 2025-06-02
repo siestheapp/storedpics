@@ -75,17 +75,20 @@
         {% for image in images %}
         <div class="card">
             <div class="image-container">
-                <img src="/images/{{ image.filename }}" alt="{{ image.filename }}">
+                <a href="/image/{{ image.filename }}">
+                    <img src="/images/{{ image.filename }}" alt="{{ image.filename }}">
+                </a>
             </div>
             <div class="metadata">
                 <h3>{{ image.filename }}</h3>
                 <p><strong>Uploader:</strong> {{ image.uploader }}</p>
                 <p><strong>Brand:</strong> {{ image.brand_name }}</p>
-                <p><strong>Category:</strong> {{ image.category }}</p>
+                <p><strong>Size Guide Header:</strong> {{ image.size_guide_header }}</p>
                 <p><strong>Gender:</strong> {{ image.gender }}</p>
                 <p><strong>Fit:</strong> {{ image.fit }}</p>
-                <p><strong>Size Guide:</strong> {{ image.size_guide_header }}</p>
                 <p><strong>Unit:</strong> {{ image.unit }}</p>
+                <p><strong>Category:</strong> {{ image.category }}</p>
+                <p><strong>Source URL:</strong> {% if image.source_url %}<a href="{{ image.source_url }}" target="_blank">{{ image.source_url }}</a>{% else %}N/A{% endif %}</p>
                 <p><strong>Uploaded:</strong> {{ image.uploaded_at }}</p>
             </div>
         </div>
