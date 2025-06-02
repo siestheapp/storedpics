@@ -1,0 +1,13 @@
+[Unit]
+Description=StoredPics FastAPI Service
+After=network.target
+
+[Service]
+User=seandavey
+WorkingDirectory=/Users/seandavey/projects/storedpics
+Environment="PATH=/Users/seandavey/projects/storedpics/venv/bin"
+ExecStart=/Users/seandavey/projects/storedpics/venv/bin/python main.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target 
